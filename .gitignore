@@ -1,5 +1,6 @@
 # Hugo files
 /public/
+/resources/
 /resources/_gen/
 /.hugo_build.lock
 

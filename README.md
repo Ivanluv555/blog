@@ -1,6 +1,6 @@
 # 我的个人博客
 
-使用 Hugo + PaperMod 主题构建的个人博客。
+使用 Hugo + Blowfish 主题构建的个人博客。
 
 ## 快速开始
 
@@ -44,30 +44,41 @@ hugo new content posts/文章标题.md
 
 ```
 blog/
-├── archetypes/     # 内容模板
-├── assets/         # 资源文件（CSS, JS等）
-├── content/        # 博客内容
-│   ├── about.md    # 关于页面
-│   ├── archives/   # 归档页面
-│   └── posts/      # 博客文章
-├── data/           # 数据文件
-├── layouts/        # 自定义布局
-├── static/         # 静态文件（图片等）
-├── themes/         # 主题目录
-│   └── PaperMod/   # PaperMod主题
-├── hugo.toml       # Hugo配置文件
-└── public/         # 构建输出目录（自动生成）
+├── archetypes/        # 内容模板
+├── assets/            # 资源文件（CSS, JS等）
+├── config/
+│   └── _default/      # 模块化配置文件
+│       ├── config.toml    # 主配置
+│       ├── languages.toml # 语言配置
+│       ├── menus.toml     # 菜单配置
+│       └── params.toml    # 参数配置
+├── content/           # 博客内容
+│   ├── _index.md      # 首页
+│   ├── about.md       # 关于页面
+│   ├── page/          # 静态页面
+│   └── posts/         # 博客文章
+├── layouts/           # 自定义布局
+├── static/            # 静态文件（图片等）
+├── themes/
+│   └── blowfish/      # Blowfish主题
+└── public/            # 构建输出目录（自动生成）
 ```
 
 ## 配置说明
 
-编辑 `hugo.toml` 文件来自定义你的博客：
+编辑 `config/_default/` 目录下的配置文件来自定义你的博客：
 
-- `baseURL`: 你的网站域名
-- `title`: 网站标题
-- `params.author`: 作者名称
-- `params.description`: 网站描述
-- `params.socialIcons`: 社交媒体链接
+- **config.toml**: 基础配置（baseURL、主题、语言等）
+- **languages.toml**: 多语言配置和站点标题
+- **params.toml**: 主题参数（外观、功能、布局等）
+- **menus.toml**: 导航菜单配置
+
+### 重要配置项
+
+- `baseURL`: 你的网站域名（config.toml）
+- `title`: 网站标题（languages.toml）
+- `author`: 作者信息（_index.md）
+- 主题外观和功能：params.toml
 
 ## 部署
 
@@ -78,9 +89,15 @@ blog/
 - **Netlify**: 连接 Git 仓库自动部署
 - **Cloudflare Pages**: 连接 Git 仓库自动部署
 
+## 环境要求
+
+- Hugo v0.164.0 或更高版本（Extended 版本）
+- Git
+
 ## 主题文档
 
-PaperMod主题文档: https://github.com/adityatelange/hugo-PaperMod/wiki
+- Blowfish 主题文档: https://blowfish.page/
+- Blowfish GitHub: https://github.com/nunocoracao/blowfish
 
 ## Hugo文档
 

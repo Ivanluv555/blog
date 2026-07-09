@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "hugo server -D --bind 0.0.0.0",
     "build": "hugo --minify",
-    "clean": "rm -rf public"
+    "clean": "hugo --gc"
+  },
+  "engines": {
+    "hugo": ">=0.164.0"
   },
   "private": true
 }

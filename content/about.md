@@ -29,7 +29,7 @@ title = '关于我'
 
 ### 📝 关于本站
 
-本站使用 Hugo + PaperMod 主题搭建，托管在 GitHub Pages。
+本站使用 Hugo + Blowfish 主题搭建，托管在 GitHub Pages。
 
 ---
 

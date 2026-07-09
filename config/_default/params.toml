@@ -36,8 +36,8 @@ robots = ""
 
 [article]
   showDate = true
-  showViews = true
-  showLikes = true
+  showViews = false
+  showLikes = false
   showDateUpdated = false
   showAuthor = true
   showHero = true
@@ -65,8 +65,8 @@ robots = ""
   layoutBackgroundHeaderSpace = true
   showBreadcrumbs = true
   showSummary = true
-  showViews = true
-  showLikes = true
+  showViews = false
+  showLikes = false
   showTableOfContents = false
   showCards = true
   orderByWeight = false
@@ -84,8 +84,8 @@ robots = ""
   showHero = true
   heroStyle = "background"
   showBreadcrumbs = true
-  showViews = true
-  showLikes = true
+  showViews = false
+  showLikes = false
   showTableOfContents = false
   cardView = false
   layoutBackgroundBlur = true
@@ -95,8 +95,8 @@ robots = ""
   showHero = true
   heroStyle = "background"
   showBreadcrumbs = true
-  showViews = true
-  showLikes = true
+  showViews = false
+  showLikes = false
   showTableOfContents = true
   groupByYear = false
   cardView = true
@@ -105,6 +105,8 @@ robots = ""
   backgroundImageUrl = "/img/background.svg"
 
 # Firebase 集成（可选 - 用于浏览量和点赞）
+# 需要启用此功能时，请访问 https://console.firebase.google.com/ 创建项目
+# 并将相应的配置值填写到下方，同时在 params.toml 中启用 showViews 和 showLikes
 [firebase]
   apiKey = ""
   authDomain = ""
