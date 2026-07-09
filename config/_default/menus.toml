@@ -9,8 +9,13 @@
   weight = 20
 
 [[main]]
-  name = "合集"
-  pageRef = "collections"
+  name = "系列"
+  pageRef = "series"
+  weight = 25
+
+[[main]]
+  name = "分类"
+  pageRef = "categories"
   weight = 30
 
 [[main]]
