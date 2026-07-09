@@ -1,0 +1,34 @@
+[[main]]
+  name = "首页"
+  pageRef = "/"
+  weight = 10
+
+[[main]]
+  name = "文章"
+  pageRef = "posts"
+  weight = 20
+
+[[main]]
+  name = "合集"
+  pageRef = "collections"
+  weight = 30
+
+[[main]]
+  name = "标签"
+  pageRef = "tags"
+  weight = 35
+
+[[main]]
+  name = "关于"
+  pageRef = "about"
+  weight = 40
+
+[[footer]]
+  name = "隐私政策"
+  pageRef = "/privacy"
+  weight = 10
+
+[[footer]]
+  name = "使用条款"
+  pageRef = "/terms"
+  weight = 20

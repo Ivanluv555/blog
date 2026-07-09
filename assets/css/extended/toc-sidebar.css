@@ -1,0 +1,103 @@
+/* 侧边栏目录样式 */
+@media screen and (min-width: 1280px) {
+  /* 文章容器调整 */
+  .post-content {
+    margin-right: 300px;
+  }
+
+  /* 目录固定在右侧 */
+  .toc {
+    position: fixed;
+    right: 20px;
+    top: 120px;
+    width: 260px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    background: var(--entry);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* 目录不再占用文档流 */
+  .toc details {
+    position: static;
+  }
+
+  /* 目录标题 */
+  .toc details summary {
+    cursor: default;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  /* 隐藏折叠图标，保持展开 */
+  .toc details summary::after {
+    content: none;
+  }
+
+  /* 目录永远展开 */
+  .toc details[open] {
+    display: block;
+  }
+
+  /* 目录内容样式 */
+  .toc .inner {
+    padding-left: 0;
+  }
+
+  /* 目录链接样式 */
+  .toc ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .toc ul li {
+    margin: 6px 0;
+  }
+
+  .toc ul li a {
+    display: block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: all 0.2s;
+  }
+
+  .toc ul li a:hover {
+    background: var(--theme);
+    color: var(--primary);
+  }
+
+  /* 嵌套目录缩进 */
+  .toc ul ul {
+    padding-left: 16px;
+  }
+
+  /* 滚动条样式 */
+  .toc::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .toc::-webkit-scrollbar-track {
+    background: var(--code-bg);
+    border-radius: 3px;
+  }
+
+  .toc::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 3px;
+  }
+
+  .toc::-webkit-scrollbar-thumb:hover {
+    background: var(--tertiary);
+  }
+}
+
+/* 小屏幕保持原样 */
+@media screen and (max-width: 1279px) {
+  .toc {
+    position: relative;
+    margin-bottom: 20px;
+  }
+}

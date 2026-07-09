@@ -1,0 +1,28 @@
+[goldmark]
+  [goldmark.renderer]
+    unsafe = true
+  [goldmark.extensions]
+    definitionList = true
+    footnote = true
+    linkify = true
+    strikethrough = true
+    table = true
+    taskList = true
+    typographer = true
+
+[highlight]
+  noClasses = false
+  codeFences = true
+  guessSyntax = true
+  lineNoStart = 1
+  lineNos = true
+  lineNumbersInTable = true
+  tabWidth = 4
+  anchorLineNos = false
+  hl_Lines = ""
+  style = "monokai"
+
+[tableOfContents]
+  startLevel = 2
+  endLevel = 4
+  ordered = false
