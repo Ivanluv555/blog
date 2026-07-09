@@ -1,0 +1,21 @@
+# Hugo files
+/public/
+/resources/_gen/
+/.hugo_build.lock
+
+# IDE
+/.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+npm-debug.log
+
+# Temporary files
+*.swp
+*.swo
+*~
