@@ -4,6 +4,9 @@ defaultContentLanguage = "zh-cn"
 enableRobotsTXT = true
 summaryLength = 30
 
+[params]
+  mainSections = ["posts"]
+
 [pagination]
   pagerSize = 10
 
