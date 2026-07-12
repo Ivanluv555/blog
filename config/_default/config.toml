@@ -2,8 +2,10 @@ baseURL = "https://example.org/"
 theme = "blowfish"
 defaultContentLanguage = "zh-cn"
 enableRobotsTXT = true
-paginate = 10
 summaryLength = 30
+
+[pagination]
+  pagerSize = 10
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
