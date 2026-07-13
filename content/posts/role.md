@@ -1,12 +1,12 @@
-+++
+---
 title: "Spring Boot实战 - 手写角色访问"
 date: 2026-07-13T17:40:00+08:00
 draft: false
 tags: ["Spring Boot", "RBAC", "JWT", "权限控制", "安全"]
 categories: ["技术"]
 description: "从零开始在Spring Boot项目中实现完整的RBAC权限控制系统，包括JWT、自定义注解、拦截器等核心组件"
-series = ['Spring']
-+++
+series: ['Spring']
+---
 
 ## 问题
 
