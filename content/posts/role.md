@@ -1,11 +1,18 @@
 ---
-title: "Spring Boot实战 - 手写角色访问"
+title: Spring Boot实战 - 手写角色访问
 date: 2026-07-13T17:40:00+08:00
 draft: false
-tags: ["Spring Boot", "RBAC", "JWT", "权限控制", "安全"]
-categories: ["技术"]
-description: "从零开始在Spring Boot项目中实现完整的RBAC权限控制系统，包括JWT、自定义注解、拦截器等核心组件"
-series: ['Spring']
+tags:
+  - SpringBoot
+  - RBAC
+  - JWT
+  - 权限控制
+  - 安全
+categories:
+  - 技术
+description: 从零开始在Spring Boot项目中实现完整的RBAC权限控制系统，包括JWT、自定义注解、拦截器等核心组件
+series:
+  - Spring
 ---
 
 ## 问题
@@ -13,8 +20,6 @@ series: ['Spring']
 在开发艺术展示平台（Artshow）时，这里需要实现一个灵活的权限控制系统，支持普通用户、讲师和管理员三种角色。经过权衡，这里选择了**自定义注解 + 拦截器**的方案，而非Spring Security。
 
 本文将详细介绍如何从零开始实现一个完整的RBAC系统，涵盖数据库设计、JWT改造、自定义注解、拦截器增强等所有环节。
-
-<!--more-->
 
 ## 开箱即用的Spring Security与手写
 
@@ -760,15 +765,15 @@ registry.addInterceptor(authInterceptor)
 
 ### 功能对比
 
-| 功能 | 自定义方案 | Spring Security |
-|------|-----------|----------------|
-| JWT认证 | ✅ | ✅ |
-| 角色控制 | ✅ | ✅ |
-| 方法级权限 | ✅ | ✅ |
-| CSRF防护 | ❌ | ✅ |
-| Session管理 | ❌ | ✅ |
-| OAuth2 | ❌ | ✅ |
-| 记住我 | ❌ | ✅ |
+| 功能        | 自定义方案 | Spring Security |
+| --------- | ----- | --------------- |
+| JWT认证     | ✅     | ✅               |
+| 角色控制      | ✅     | ✅               |
+| 方法级权限     | ✅     | ✅               |
+| CSRF防护    | ❌     | ✅               |
+| Session管理 | ❌     | ✅               |
+| OAuth2    | ❌     | ✅               |
+| 记住我       | ❌     | ✅               |
 
 ### 何时迁移到Spring Security？
 
@@ -786,11 +791,11 @@ registry.addInterceptor(authInterceptor)
 
 通过自定义注解和拦截器，我们实现了一个轻量级但完整的RBAC系统：
 
-✅ **三种角色**：USER、INSTRUCTOR、ADMIN  
-✅ **灵活注解**：@Public、@RequireRole  
-✅ **JWT集成**：token包含角色信息  
-✅ **方法级控制**：细粒度权限管理  
-✅ **易于测试**：Swagger UI完美支持  
+**三种角色**：USER、INSTRUCTOR、ADMIN  
+**灵活注解**：@Public、@RequireRole  
+**JWT集成**：token包含角色信息  
+**方法级控制**：细粒度权限管理  
+**易于测试**：Swagger UI完美支持  
 
 对于中小型项目，这套方案足够应对大部分权限控制需求。如果未来需要更复杂的安全特性，可以平滑迁移到Spring Security。
 
