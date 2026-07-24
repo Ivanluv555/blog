@@ -2,7 +2,7 @@
   - date = '2026-07-09T19:45:51+08:00'
 
   - draft = false
-- title = '关于我'
+  - title = '关于我'
 
 ---
 ## 你好，我是<strong>落灰的酒精灯</strong>
