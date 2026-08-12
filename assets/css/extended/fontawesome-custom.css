@@ -1,0 +1,175 @@
+/* Font Awesome 图标自定义样式 */
+
+/* 标题图标样式 */
+h3 i.fas,
+h3 i.fab {
+    margin-right: 0.5rem;
+    color: var(--color-primary-500);
+    opacity: 0.9;
+}
+
+/* 列表图标样式 */
+article ul li i.fas,
+article ul li i.fab {
+    margin-right: 0.5rem;
+    min-width: 1.2em;
+    color: var(--color-primary-600);
+}
+
+/* GitHub 图标特殊颜色 */
+i.fa-github {
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+html.dark i.fa-github {
+    color: #fff;
+}
+
+i.fa-github:hover {
+    color: var(--color-primary-500);
+}
+
+/* Email 图标颜色 */
+i.fa-envelope {
+    color: #ea4335;
+}
+
+/* Java 图标颜色 */
+i.fa-java {
+    color: #f89820;
+}
+
+/* 图标悬停效果 */
+article i.fas,
+article i.fab {
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+article a:hover i.fas,
+article a:hover i.fab {
+    transform: scale(1.1);
+}
+
+/* 段落中的图标 */
+p i.fas,
+p i.fab {
+    margin: 0 0.3rem;
+}
+
+/* 图标动画 */
+@keyframes icon-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* 为特定图标添加脉冲效果 */
+.fa-handshake {
+    animation: icon-pulse 2s ease-in-out infinite;
+}
+
+/* 标签云样式 */
+.term-cloud {
+    display: grid;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.taxonomy-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--color-primary-500);
+    padding-bottom: 0.5rem;
+}
+
+.term-link {
+    display: inline-block;
+    margin: 0.3rem 0.5rem;
+    padding: 0.4rem 1rem;
+    background: var(--color-neutral-100);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+html.dark .term-link {
+    background: var(--color-neutral-800);
+}
+
+.term-link:hover {
+    background: var(--color-primary-500);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.term-count {
+    font-size: 0.85em;
+    opacity: 0.7;
+    margin-left: 0.3rem;
+}
+
+/* 文章元信息图标美化 */
+.article-meta i {
+    margin-right: 0.3rem;
+    color: var(--color-primary-500);
+}
+
+/* 按钮图标样式 */
+button i,
+.button i {
+    margin-right: 0.5rem;
+}
+
+/* 导航图标 */
+nav i {
+    margin-right: 0.5rem;
+}
+
+/* 社交链接图标增强 */
+.social-links a i {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* 标签页图标颜色 */
+.fa-tags {
+    color: #3b82f6;
+}
+
+.fa-folder-open {
+    color: #f59e0b;
+}
+
+.fa-list-ol {
+    color: #10b981;
+}
+
+.fa-bookmark {
+    color: #8b5cf6;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+
+    h3 i.fas,
+    h3 i.fab {
+        font-size: 0.9em;
+    }
+
+    .term-link {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.8rem;
+    }
+}

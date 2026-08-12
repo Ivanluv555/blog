@@ -1,0 +1,27 @@
+{{/* 自定义标签云，添加 Font Awesome 图标 */}}
+{{ $taxonomies := .Site.Taxonomies }}
+{{ if $taxonomies }}
+<div class="term-cloud">
+    {{ range $name, $taxonomy := $taxonomies }}
+    <div class="taxonomy-section">
+        <h3>
+            {{ if eq $name "tags" }}
+            <i class="fas fa-tags"></i>
+            {{ else if eq $name "categories" }}
+            <i class="fas fa-folder-open"></i>
+            {{ else if eq $name "series" }}
+            <i class="fas fa-list-ol"></i>
+            {{ else }}
+            <i class="fas fa-bookmark"></i>
+            {{ end }}
+            {{ $name | humanize }}
+        </h3>
+        {{ range $taxonomy }}
+        <a href="{{ .Page.Permalink }}" class="term-link">
+            {{ .Page.Title }} <span class="term-count">({{ .Count }})</span>
+        </a>
+        {{ end }}
+    </div>
+    {{ end }}
+</div>
+{{ end }}

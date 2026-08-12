@@ -1,12 +1,20 @@
-+++
-date = '2026-07-12T00:00:00+08:00'
-draft = false
-title = '修复HONOR笔记本的ACPI电源管理问题：一次深入的Linux内核调试之旅'
-description = '记录在Fedora 44上修复HONOR笔记本电池和AC适配器识别问题的完整历程，从问题诊断到ACPI表修复的技术实践'
-tags = ['Linux', 'ACPI', 'Kernel', 'Hardware', '故障排查', 'Fedora']
-categories = ['技术']
-series = ['Linux硬件调试']
-+++
+---
+date: '2026-07-12T00:00:00+08:00'
+draft: false
+title: '修复HONOR笔记本的ACPI电源管理问题：一次深入的Linux内核调试之旅'
+description: '记录在Fedora 44上修复HONOR笔记本电池和AC适配器识别问题的完整历程，从问题诊断到ACPI表修复的技术实践'
+tags:
+  - Linux
+  - ACPI
+  - Kernel
+  - Hardware
+  - 故障排查
+  - Fedora
+categories:
+  - 技术
+series:
+  - Linux硬件调试
+---
 
 ## 问题起源
 
@@ -27,6 +35,7 @@ ls /sys/bus/acpi/devices/ | grep -E "PNP0C09|PNP0C0A|ACPI0003"
 结果是空的。
 
 我们查找的这三个设备 ID 分别代表：
+
 - `PNP0C09` - 嵌入式控制器（EC，Embedded Controller）
 - `PNP0C0A` - 电池设备
 - `ACPI0003` - AC适配器
@@ -68,6 +77,7 @@ Error 6126 - Object already exists: \_SB.PC00.XHCI.RHUB.HS03._UPC
 仔细看：
 
 **DSDT中的定义（dsdt.dsl:12398）**：
+
 ```asl
 Device (HS03)  // USB端口3
 {
@@ -78,6 +88,7 @@ Device (HS03)  // USB端口3
 ```
 
 **SSDT23中的重复定义（ssdt23.dsl:205）**：
+
 ```asl
 Scope (\_SB.PC00.XHCI.RHUB.HS03)
 {
@@ -184,6 +195,7 @@ initrd /acpi_override.cpio /initramfs-6.19.10-300.fc44.x86_64.img
 ```
 
 **结果**：启动失败！错误信息：
+
 ```
 Unable to mount root fs on unknown-block(0,0)
 ```
@@ -279,6 +291,7 @@ install() {
 ---
 
 **系统信息**：
+
 - 设备：HONOR MagicBook 14 Pro
 - 平台：Intel Arrow Lake
 - 内核：Linux 6.19.10-300.fc44.x86_64

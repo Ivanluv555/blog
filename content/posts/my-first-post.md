@@ -1,12 +1,18 @@
-+++
-date = '2026-07-09T19:45:48+08:00'
-draft = false
-title = '基于 Hugo 的个人博客构建实践'
-description = '记录使用 Hugo 静态站点生成器与 Blowfish 主题构建个人博客的完整过程'
-tags = ['Hugo', '博客', '静态站点', 'Blowfish']
-categories = ['技术']
-series = ['Hugo入门']
-+++
+---
+date: '2026-07-09T19:45:48+08:00'
+draft: false
+title: '基于 Hugo 的个人博客构建实践'
+description: '记录使用 Hugo 静态站点生成器与 Blowfish 主题构建个人博客的完整过程'
+tags:
+  - Hugo
+  - 博客
+  - 静态站点
+  - Blowfish
+categories:
+  - 技术
+series:
+  - Hugo入门
+---
 
 ## 技术选型背景
 
