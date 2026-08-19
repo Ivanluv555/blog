@@ -11,7 +11,7 @@ tags:
 categories:
   - 技术
 series:
-  - Hugo入门
+  - 技术杂谈
 ---
 
 ## 技术选型背景

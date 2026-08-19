@@ -9,10 +9,10 @@ tags:
   - 权限控制
   - 安全
 categories:
-  - 技术
+  - WEB后端
 description: 从零开始在Spring Boot项目中实现完整的RBAC权限控制系统，包括JWT、自定义注解、拦截器等核心组件
 series:
-  - Spring
+  - Spring谈
 ---
 
 ## 问题
@@ -28,11 +28,13 @@ series:
 ### Spring Security
 
 **优点：**
+
 - 企业级标准，功能完整
 - 成熟稳定，社区支持好
 - 提供完整的安全框架
 
 **缺点：**
+
 - 学习曲线陡峭
 - 配置复杂，概念较多
 - 对于简单需求略显笨重
@@ -40,11 +42,13 @@ series:
 ### 手写方案
 
 **优点：**
+
 - 轻量级，代码简单易懂
 - 完全可控，易于定制
 - 学习成本低
 
 **缺点：**
+
 - 需要手动实现各个组件
 - 缺少一些高级特性
 
@@ -57,7 +61,7 @@ series:
 这里定义了三种角色：
 
 | 角色 | 代码 | 权限 |
-|------|------|------|
+| ------ | ------ | ------ |
 | 普通用户 | `USER` | 浏览、购买、发帖、评论、点赞 |
 | 讲师 | `INSTRUCTOR` | USER权限 + 创建和管理课程/商品 |
 | 管理员 | `ADMIN` | 所有权限 + 用户管理、系统管理 |
@@ -663,7 +667,7 @@ curl -H "Authorization: Bearer $ADMIN_TOKEN" \
 ## 权限矩阵
 
 | 操作 | 游客 | USER | INSTRUCTOR | ADMIN |
-|------|------|------|------------|-------|
+| ------ | ------ | ------ | ------------ | ------- |
 | 浏览课程/商品 | ✅ | ✅ | ✅ | ✅ |
 | 注册/登录 | ✅ | ✅ | ✅ | ✅ |
 | 发帖/评论 | ❌ | ✅ | ✅ | ✅ |
@@ -766,7 +770,7 @@ registry.addInterceptor(authInterceptor)
 ### 功能对比
 
 | 功能        | 自定义方案 | Spring Security |
-| --------- | ----- | --------------- |
+| ---------- | ------ | --------------- |
 | JWT认证     | ✅     | ✅               |
 | 角色控制      | ✅     | ✅               |
 | 方法级权限     | ✅     | ✅               |
@@ -778,6 +782,7 @@ registry.addInterceptor(authInterceptor)
 ### 何时迁移到Spring Security？
 
 如果需要以下功能，建议迁移：
+
 - OAuth2/OIDC集成
 - LDAP认证
 - 复杂的权限表达式
@@ -804,5 +809,3 @@ registry.addInterceptor(authInterceptor)
 - [Spring MVC拦截器官方文档](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html)
 - [JWT官方网站](https://jwt.io/)
 - [RBAC权限模型详解](https://en.wikipedia.org/wiki/Role-based_access_control)
-
-

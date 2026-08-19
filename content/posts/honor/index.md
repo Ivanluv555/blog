@@ -1,6 +1,6 @@
 ---
 date: '2026-07-12T00:00:00+08:00'
-draft: false
+draft: true
 title: '修复HONOR笔记本的ACPI电源管理问题：一次深入的Linux内核调试之旅'
 description: '记录在Fedora 44上修复HONOR笔记本电池和AC适配器识别问题的完整历程，从问题诊断到ACPI表修复的技术实践'
 tags:
@@ -13,7 +13,7 @@ tags:
 categories:
   - 技术
 series:
-  - Linux硬件调试
+  - 技术杂谈
 ---
 
 ## 问题起源
@@ -68,7 +68,7 @@ iasl -d ssdt*.dat
 
 当尝试一起反编译所有ACPI表时，出现了关键错误：
 
-```
+``` log
 Error 6126 - Object already exists: \_SB.PC00.XHCI.RHUB.HS03._UPC
 ```
 
@@ -76,7 +76,7 @@ Error 6126 - Object already exists: \_SB.PC00.XHCI.RHUB.HS03._UPC
 
 仔细看：
 
-**DSDT中的定义（dsdt.dsl:12398）**：
+#### DSDT中的定义（dsdt.dsl:12398）
 
 ```asl
 Device (HS03)  // USB端口3
@@ -87,7 +87,7 @@ Device (HS03)  // USB端口3
 }
 ```
 
-**SSDT23中的重复定义（ssdt23.dsl:205）**：
+#### SSDT23中的重复定义（ssdt23.dsl:205）
 
 ```asl
 Scope (\_SB.PC00.XHCI.RHUB.HS03)
@@ -181,7 +181,7 @@ iasl -tc ssdt23.dsl
 
 Linux内核支持在启动时用自定义的ACPI表覆盖BIOS提供的表。这需要在initramfs中包含修复后的表。
 
-**第一次尝试：GRUB多initrd加载**
+##### 第一次尝试：GRUB多initrd加载
 
 ```bash
 # 创建CPIO归档
@@ -196,7 +196,7 @@ initrd /acpi_override.cpio /initramfs-6.19.10-300.fc44.x86_64.img
 
 **结果**：启动失败！错误信息：
 
-```
+``` log
 Unable to mount root fs on unknown-block(0,0)
 ```
 
