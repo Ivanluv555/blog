@@ -550,6 +550,7 @@ curl -H "Authorization: Bearer $USER_TOKEN" \
   -X POST http://localhost:8888/course \
   -d '{"title":"测试课程"}'
 
+<<<<<<< HEAD
 <<<<<<<< HEAD:content/posts/role/index.md
 - **自定义方案**：约500行核心代码
 - **Spring Security**：配置代码相当，但需理解更多概念
@@ -578,6 +579,11 @@ curl -H "Authorization: Bearer $USER_TOKEN" \
 curl -H "Authorization: Bearer $ADMIN_TOKEN" \
   http://localhost:8888/user/list
 >>>>>>>> a7892e1 (fix: 不要那么多代码了):content/posts/role/role.md
+=======
+# 4. 管理员可访问所有接口
+curl -H "Authorization: Bearer $ADMIN_TOKEN" \
+  http://localhost:8888/user/list
+>>>>>>> a7892e14376cc03ef62c454eb2713d3eef3c057d
 - 完善的安全审计
 
 ## 源码地址
@@ -586,6 +592,7 @@ curl -H "Authorization: Bearer $ADMIN_TOKEN" \
 
 ## 总结
 
+<<<<<<< HEAD
 <<<<<<<< HEAD:content/posts/role/index.md
 通过自定义注解和拦截器，我们实现了一个轻量级但完整的RBAC系统：
 
@@ -603,6 +610,8 @@ curl -H "Authorization: Bearer $ADMIN_TOKEN" \
 - [JWT官方网站](https://jwt.io/)
 - [RBAC权限模型详解](https://en.wikipedia.org/wiki/Role-based_access_control)
 ========
+=======
+>>>>>>> a7892e14376cc03ef62c454eb2713d3eef3c057d
 @Service
 public class UserService {
     private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -618,5 +627,9 @@ public class UserService {
         if (!encoder.matches(password, user.getPasswordHash())) {  // 验证
 Long userId = validateRefreshToken(refreshToken);
     User user = userRepository.findById(userId).orElseThrow(...);
+<<<<<<< HEAD
     return Result.success(JwtUtils.createToken(userId, user.getRole())
 >>>>>>>> a7892e1 (fix: 不要那么多代码了):content/posts/role/role.md
+=======
+    return Result.success(JwtUtils.createToken(userId, user.getRole())
+>>>>>>> a7892e14376cc03ef62c454eb2713d3eef3c057d
