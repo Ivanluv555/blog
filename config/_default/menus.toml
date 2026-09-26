@@ -24,11 +24,6 @@
   weight = 40
 
 [[footer]]
-  name = "隐私政策"
-  pageRef = "/privacy"
+  name = "归档"
+  pageRef = "page/archives"
   weight = 10
-
-[[footer]]
-  name = "使用条款"
-  pageRef = "/terms"
-  weight = 20
