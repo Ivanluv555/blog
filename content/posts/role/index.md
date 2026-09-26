@@ -2,12 +2,6 @@
 title: Spring Boot实战 - 手写角色访问
 date: 2026-07-13T17:40:00+08:00
 draft: false
-tags:
-  - SpringBoot
-  - RBAC
-  - JWT
-  - 权限控制
-  - 安全
 categories:
   - WEB后端
 description: 从零开始在Spring Boot项目中实现完整的RBAC权限控制系统，包括JWT、自定义注解、拦截器等核心组件
@@ -479,6 +473,7 @@ curl -H "Authorization: Bearer $ADMIN_TOKEN" \
 | 用户管理 | ❌ | ❌ | ❌ | ✅ |
 
 ## 常见问题{
+
     public String login(String username, String password) {
         User user = userRepository.findByUserName(username);
         // ...密码验证...
@@ -512,6 +507,7 @@ curl -H "Authorization: Bearer $ADMIN_TOKEN" \
         return JwtUtils.createToken(user.getUserId(), user.getRole());
     }
 }
+
 ```
 
 ### Q3: Token过期怎么办？
@@ -550,7 +546,14 @@ curl -H "Authorization: Bearer $USER_TOKEN" \
   -X POST http://localhost:8888/course \
   -d '{"title":"测试课程"}'
 
-<<<<<<<< HEAD:content/posts/role/index.md
+# 4. 管理员可访问所有接口
+curl -H "Authorization: Bearer $ADMIN_TOKEN" \
+  http://localhost:8888/user/list
+
+## 对比Spring Security
+
+### 代码量对比
+
 - **自定义方案**：约500行核心代码
 - **Spring Security**：配置代码相当，但需理解更多概念
 
@@ -573,11 +576,6 @@ curl -H "Authorization: Bearer $USER_TOKEN" \
 - OAuth2/OIDC集成
 - LDAP认证
 - 复杂的权限表达式
-========
-# 4. 管理员可访问所有接口
-curl -H "Authorization: Bearer $ADMIN_TOKEN" \
-  http://localhost:8888/user/list
->>>>>>>> a7892e1 (fix: 不要那么多代码了):content/posts/role/role.md
 - 完善的安全审计
 
 ## 源码地址
@@ -602,21 +600,3 @@ curl -H "Authorization: Bearer $ADMIN_TOKEN" \
 - [Spring MVC拦截器官方文档](https://docs.spring.io/spring-framework/reference/web/webmvc/mvc-config/interceptors.html)
 - [JWT官方网站](https://jwt.io/)
 - [RBAC权限模型详解](https://en.wikipedia.org/wiki/Role-based_access_control)
-========
-@Service
-public class UserService {
-    private final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-
-    public User register(UserDTO dto) {
-        User user = new User();
-        user.setPasswordHash(encoder.encode(dto.getPassword()));  // 加密
-        return userRepository.save(user);
-    }
-
-    public String login(String username, String password) {
-        User user = userRepository.findByUserName(username);
-        if (!encoder.matches(password, user.getPasswordHash())) {  // 验证
-Long userId = validateRefreshToken(refreshToken);
-    User user = userRepository.findById(userId).orElseThrow(...);
-    return Result.success(JwtUtils.createToken(userId, user.getRole())
->>>>>>>> a7892e1 (fix: 不要那么多代码了):content/posts/role/role.md
