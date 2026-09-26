@@ -14,11 +14,6 @@
   weight = 25
 
 [[main]]
-  name = "分类"
-  pageRef = "categories"
-  weight = 30
-
-[[main]]
   name = "关于"
   pageRef = "about"
   weight = 40

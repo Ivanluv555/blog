@@ -14,5 +14,4 @@ summaryLength = 30
   home = ["HTML", "RSS", "JSON"]
 
 [taxonomies]
-  category = "categories"
   series = "series"
